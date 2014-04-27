@@ -1,0 +1,9 @@
+{
+  "modules" : { 
+    "Tydom350"  : {
+      "description": "Pilote la passerelle Tydom 350 de Delta Dore",
+      "version"    : "0.1",
+      "tydom_url"     : "http://0.0.0.0/"
+    }
+  }
+}
