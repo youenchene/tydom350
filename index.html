@@ -1,6 +1,41 @@
 <div id="Tydom350">
   <div class="row-fluid">
     <div class="span8">
+    <h2>Tydom 350</h2> 
+    <img src="/assets/tydom350/webapp/tydom_187.png" /> 
+    <p>A S.A.R.A.H. plugin to control old Tydom 350 from Delta Dore</p> 
+    <a href="http://www.deltadore.com/france/fr/catalogue-domotique/controle-commandes/ecrans/tydom-350-pc.html#prod_detail">More information on Delta Dore Website</a>
+    <h2>Current Plugin Support</h2>
+    <ul>
+      <li>Tyxia 461 (Eclairage on/off)</li>
+      <li>Calybox 430 (Controle chauffage 3 zones) + Tywatt 500 (enregistrement consommation avec wattmetres)</li>
+    </ul> 
+    <h2>Basic API Usage</h2> 
+<ul>
+<li>Turn a light 0 on : http://127.0.0.1:8080/sarah/Tydom350?command=LIGHT&item=0&value=on</li>
+<li>Turn a light 0 off : http://127.0.0.1:8080/sarah/Tydom350?command=LIGHT&item=0&value=off</li>
+</ul>
+<ul>
+<li>Turn a heat area on mode : http://127.0.0.1:8080/sarah/Tydom350?command=HEAT&area=3&value=on</li>
+<li>Turn a heat area eco mode : http://127.0.0.1:8080/sarah/Tydom350?command=HEAT&area=3&value=eco</li>
+<li>Turn a heat area frozen protection mode : http://127.0.0.1:8080/sarah/Tydom350?command=HEAT&area=3&value=fp</li>
+</ul>
+<ul>
+<li>Turn heat system to auto : http://127.0.0.1:8080/sarah/Tydom350?command=HEAT&mode=auto</li>
+<li>Turn heat system to off : http://127.0.0.1:8080/sarah/Tydom350?command=HEAT&mode=off</li>
+<li>Turn heat system to away : http://127.0.0.1:8080/sarah/Tydom350?command=HEAT&mode=away</li>
+</ul>
+
+<ul>
+<li>Get Heat system current mode : http://127.0.0.1:8080/sarah/Tydom350?command=HEAT&getmode=1 //not very accurate.</li>
+<li>Get indoor Temperature : http://127.0.0.1:8080/sarah/Tydom350?command=TEMP</li>
+<li>Get Basic Electricity consumption information : http://127.0.0.1:8080/sarah/Tydom350?command=ELEC</li>
+</ul>
+
+<h2>How to contrib</h2> 
+
+<p>Do a pull-request here : <a href="https://github.com/youenchene/tydom350">https://github.com/youenchene/tydom350</a>.</p>
+
     </div>  
   </div>
 </div>

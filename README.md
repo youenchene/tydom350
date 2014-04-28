@@ -33,6 +33,8 @@ Get Heat system current mode : http://127.0.0.1:8080/sarah/Tydom350?command=HEAT
 
 Get indoor Temperature : http://127.0.0.1:8080/sarah/Tydom350?command=TEMP
 
+Get Basic Electricity consumption information : http://127.0.0.1:8080/sarah/Tydom350?command=ELEC
+
 
 
 
