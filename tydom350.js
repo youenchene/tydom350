@@ -20,6 +20,8 @@ exports.action = function(data, callback, config, SARAH) {
     setHeat(data,callback,config);  
   }  else if (data.command == "TEMP") {
     getTemp(data,callback,config);  
+  }  else if (data.command == "ELEC") {
+    getElec(data,callback,config);  
   } else {
     callback({'tts' : 'Ordre absent ou inconnu.'}); 
   }
@@ -98,6 +100,34 @@ var getHeatMode = function(data,callback,config) {
     return heatmode;
    });
 
+}
+
+
+var changeX2DPage = function(data,callback,config) {
+  sendURL(config.tydom_url +"cgi-bin/Cmd_X2D.cgi?PAGE_X2D=1", null, function(body){ 
+    getElec(data,callback,config);
+  }); 
+}
+
+var getElec = function(data,callback,config) {
+ sendURL(config.tydom_url +"P/X2D.shtml", null, function(body){  
+    var $ = require('cheerio').load(body, { xmlMode: true, ignoreWhitespace: false, lowerCaseTags: false });
+    var checkpage =$('#liste').children().slice(6,7).children().slice(0,1).text();
+    if (checkpage=="Base") {
+      console.log("Check:"+checkpage);
+      var elec =$('#liste').children().slice(7,8).children();
+      var total=elec.slice(1,2).text();
+      var heat=elec.slice(2,3).text();
+      var hotwater=elec.slice(3,4).text();
+      var other=elec.slice(4,5).text();
+      callback({'tts': 'Consommation électrique : Total : ' +total +'kwh, Chauffage : '+heat+'kwh, Eau Chaude : '+hotwater+'kwh , Autre: '+other+'kwh', 
+       'total': total,'heat':heat, 'hotwater':hotwater, 'other':other  });
+      return heatmode;
+    } else {
+      //Turn X2D page until getting teh one with consumption info
+      changeX2DPage(data,callback,config);
+    }
+   });
 }
 
 var sendURL = function(url, callback, cb){
