@@ -19,3 +19,16 @@ Turn a heat area on mode : http://127.0.0.1:8080/sarah/Tydom350?command=HEAT&are
 
 Turn a heat area eco mode : http://127.0.0.1:8080/sarah/Tydom350?command=HEAT&area=3&value=eco
 
+Turn a heat area frozen protection mode : http://127.0.0.1:8080/sarah/Tydom350?command=HEAT&area=3&value=fp
+
+
+Turn heat system to auto : http://127.0.0.1:8080/sarah/Tydom350?command=HEAT&mode=auto
+
+Turn heat system to off : http://127.0.0.1:8080/sarah/Tydom350?command=HEAT&mode=off
+
+Turn heat system to away : http://127.0.0.1:8080/sarah/Tydom350?command=HEAT&mode=away
+
+
+Get indoor Temperature : http://127.0.0.1:8080/sarah/Tydom350?command=TEMP
+
+

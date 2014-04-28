@@ -1,0 +1,50 @@
+.plugin-gridster.Tydom350 .logo,
+.plugin-gridster.Tydom350 .text {
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.plugin-gridster.Tydom350 .logo {
+  background: #97be0d;
+  left: 0; width: 26%; 
+}
+
+.plugin-gridster.Tydom350.back .logo
+{
+  height: 65%;
+}
+
+.plugin-gridster.Tydom350 .logo h5{
+  font-size: 80%;
+  text-align: center;
+  width: 100%;
+}
+
+.plugin-gridster.Tydom350 .logo .ajax {
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  width: auto;
+}
+
+.plugin-gridster.Tydom350 .text {
+  background: #FFFFFF;
+  width: 74%;
+  right: 0;
+  margin-right: 4px; 
+  text-align: center;
+}
+
+.plugin-gridster.Tydom350 .text .main {
+  margin-top: 10px;
+  text-align:  center;
+  font-size: 40px; line-height: 42px;
+  font-weight: bold;
+}
+
+.plugin-gridster.Tydom350 .text .sub {
+  text-align:  center;
+  font-size: 12px; 
+}
+

@@ -1,0 +1,15 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="ruleDemo5" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+  <rule id="ruleTydom350-1" scope="public">
+    <example>Sarah allume la lumière</example>
+    <tag>out.action=new Object(); </tag>
+
+    <item>Sarah</item>
+
+    <one-of>
+      <item>allume la lumière de la cuisine<tag>out.action.value=on</tag></item>
+      <item>éteints la lumière de la cuisine<tag>out.action.value=off</tag></item>
+    </one-of>
+
+    <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/Tydom350?command=LIGHT&item=0";</tag>
+  </rule> 
+</grammar>
