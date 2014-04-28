@@ -1,5 +1,6 @@
 ﻿var config_plugin;
-var indoortemp="N/A"
+var indoortemp="N/A";
+var heatmode="N/A";
 
 exports.init = function (SARAH){
   config_plugin=SARAH.ConfigManager.getConfig();
@@ -66,7 +67,9 @@ var setHeat = function(data,callback,config) {
         callback({'tts' : 'Mode chauffage réglé.'});
         return; 
       });
-    } else {
+    } else if (data.getmode) {
+        getHeatMode(data,callback,config);
+    }  else {
       callback({'tts' : 'Paramètre manquant pour l\'ordre.'}); 
       return;
     }
@@ -81,6 +84,18 @@ var getTemp = function(data,callback,config) {
     indoortemp=res[0];
     callback({'tts' : 'La température intérieure est de '+indoortemp+' °C.','indoortemp': indoortemp });
     return indoortemp;
+   });
+
+}
+
+
+var getHeatMode = function(data,callback,config) {
+ sendURL(config.tydom_url +"P/therm.shtml", null, function(body){  
+   var $ = require('cheerio').load(body, { xmlMode: true, ignoreWhitespace: false, lowerCaseTags: false });
+    var hm =$('#top').children().children().children().last().attr('src');
+    if (hm.indexOf("auto")>-1) { heatmode="Auto"; }
+    callback({'tts' : 'Le mode de chauffage est : '+heatmode+'.','heatmode': heatmode });
+    return heatmode;
    });
 
 }
