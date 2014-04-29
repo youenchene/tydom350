@@ -14,6 +14,8 @@ exports.action = function(data, callback, config, SARAH) {
     return;
   }
 
+  //console.log("TYDOM 350 CALLED: "+data);
+
   if (data.command == "LIGHT") {
     setLight(data,callback,config);
   } else if (data.command == "HEAT") {
@@ -81,7 +83,7 @@ var getTemp = function(data,callback,config) {
  sendURL(config.tydom_url +"P/index.shtml", null, function(body){  
    var $ = require('cheerio').load(body, { xmlMode: true, ignoreWhitespace: false, lowerCaseTags: false });
     var temp =$('#top').children().children(".texte").text();
-    console.log(temp);
+    //console.log(temp);
     var res = temp.split(" ");
     indoortemp=res[0];
     callback({'tts' : 'La température intérieure est de '+indoortemp+' °C.','indoortemp': indoortemp });
@@ -165,7 +167,7 @@ exports.getIndoorTempAjax = function(SARAH){
 }
 
 exports.cron = function(callback, task, SARAH){
-  console.log("Tydom350 CRON executed.")
-  config = config_plugin.modules.Tydom350;
-  getTemp(function(body){ },config,function(body){ })
+  //console.log("Tydom350 CRON executed.");
+  config = SARAH.ConfigManager.getConfig().modules.Tydom350;
+  getTemp(null,function(body){  },config);
 }
