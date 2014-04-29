@@ -3,7 +3,7 @@
     "Tydom350" :   { 
       "name"       : "Tydom350",
       "description": "Pilote la passerelle Tydom 350 de Delta Dore",
-      "time"       : "*/5 * * * * *"
+      "time"       : "*/20 * * * * *"
     }
   },
   "modules" : { 

@@ -5,6 +5,22 @@
   <a href="sarah/tydom350" class="ajax"><img src="assets/tydom350/webapp/tydom_40.png"></a>
 </div>
 <div class="text">
-  <div class="main ajax"><%= plugin.getIndoorTemp() %></div>
+  <div id="temp_indoor" class="main"><%= plugin.getIndoorTemp() %></div>
   <div class="sub">Température intérieure</div>
 </div>
+
+<script type="text/javascript">
+var getTemp =function() {
+	console.log("Calling");
+	jQuery.ajax({
+url: '/sarah/Tydom350?command=TEMP&format=json',
+type: 'GET',
+dataType: "json",
+success: function (data) {
+$("#temp_indoor").html(data.indoortemp+"°C");
+}
+});
+}
+getTemp();
+setInterval(getTemp(), 5000);	
+</script>

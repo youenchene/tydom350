@@ -86,7 +86,12 @@ var getTemp = function(data,callback,config) {
     //console.log(temp);
     var res = temp.split(" ");
     indoortemp=res[0];
-    callback({'tts' : 'La température intérieure est de '+indoortemp+' °C.','indoortemp': indoortemp });
+    if (data.format=="json") {
+      var outjson='{"indoortemp" : "'+indoortemp+'"}';
+      callback({'tts' : outjson,'indoortemp': indoortemp });
+    } else {
+      callback({'tts' : 'La température intérieure est de '+indoortemp+' °C.','indoortemp': indoortemp });
+    }
     return indoortemp;
    });
 
