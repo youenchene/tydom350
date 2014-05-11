@@ -174,5 +174,7 @@ exports.getIndoorTempAjax = function(SARAH){
 exports.cron = function(callback, task, SARAH){
   //console.log("Tydom350 CRON executed.");
   config = SARAH.ConfigManager.getConfig().modules.Tydom350;
-  getTemp(null,function(body){  },config);
+  var d=new Object();
+  d.format="cron";
+  getTemp(d,function(body){  },config);
 }
